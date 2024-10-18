@@ -1,0 +1,269 @@
+html, body {
+    height: 100%; /* Ensure full height for html and body */
+    margin: 0; /* Reset default margins */
+    display: flex;
+    flex-direction: column; /* Column layout for the whole page */
+}
+
+
+a {
+	text-decoration: underline;
+	color: #36A9AE;
+} 
+
+body {
+    font-family: Arial, sans-serif;
+    color: black;
+    background-color: white;
+    flex: 1; /* Flex grow to take remaining space */
+}
+
+.top-bar {
+    background-color: #e5e7eb; /* Gray background */
+    color: black; /* Black text */
+    padding: 20px; /* Padding for height */
+    display: flex;
+    justify-content: center; /* Center content */
+    width: 100%; /* Full width */
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.top-bar-content {
+    display: flex;
+    justify-content: space-between; /* Space between items */
+    width: 100%; /* Full width */
+    max-width: 740px; /* Max width for content */
+    align-items: center; /* Center items vertically */
+}
+
+/* Media query for narrow screens */
+@media screen and (max-width: 600px) {
+    .top-bar-content {
+        flex-direction: column; /* Stack items vertically */
+    }
+
+    .hoitoansmp-title {
+		margin-left: 0px;
+    }
+
+    .links {
+        margin-left: 0px;
+        margin-top: 10px; /* Add space between the title and the links */
+        
+    }
+}
+
+.title-section {
+    display: flex;
+    flex-direction: column; /* Stack vertically */
+    user-select: none;
+    pointer-events: all;
+}
+
+.main-title {
+    font-size: 16px; /* Same size as links */
+    color: black; /* Black color */
+    text-decoration: none; /* No underline */
+    font-weight: bold; /* Bold text */
+}
+
+.subtitle {
+    font-size: 14px; /* Slightly smaller font size */
+    color: #4a4a4a; /* Dark gray color */
+    margin-top: 5px; /* Small margin to separate subtitle */
+}
+
+.links {
+    display: flex; /* Flex layout for links */
+    gap: 15px; /* Space between links */
+    align-items: center; /* Center items vertically */
+    margin-left: auto; /* Push links to the right */
+}
+
+
+/* Base styles for the specific links: RULES, DISCORD, JOIN */
+.links a:not(.threed-map) {
+    font-size: 14px; /* Smaller font size for links */
+    color: black; /* Black text for links */
+    text-decoration: none; /* No underline */
+    font-weight: bold; /* Bold text */
+    position: relative; /* For positioning the pseudo-element */
+}
+
+/* Hover effect using a pseudo-element */
+.links a:not(.threed-map)::after {
+    content: ''; /* Empty content for the pseudo-element */
+    position: absolute; /* Position the pseudo-element */
+    left: 0;
+    right: 0;
+    bottom: -2px; /* Position it slightly below the text */
+    height: 2px; /* Height of the underline */
+    background-color: #36A9AE; /* Yellow color */
+    opacity: 0; /* Initially, make the line invisible */
+    transition: opacity 0.3s ease-in-out; /* Smooth fade-in transition */
+}
+
+/* Hover state to reveal the underline */
+.links a:not(.threed-map):hover::after {
+    opacity: 1; /* Fade in the yellow line on hover */
+}
+
+
+.container {
+    flex: 1; /* Grow to fill available space */
+    display: flex;
+    flex-direction: column; /* Stack vertically */
+    align-items: center; /* Center content */
+    margin-top: 20px; /* Top margin */
+}
+
+.header-image {
+    width: 90%; /* Image takes 90% of the width */
+    max-width: 740px; /* Max width for image */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 20px; /* Space below the image */
+}
+
+.server-description {
+    width: 90%; /* Full width of the container */
+    max-width: 740px; /* Max width for description */
+    text-align: left; /* Align text to the left */
+    margin-bottom: 20px; /* Space below the description */
+    font-size: 18px; /* Title size larger */
+}
+
+.description-title {
+    font-size: 24px; /* Title size larger */
+    font-weight: bold; /* Bold text */
+    margin-bottom: 25px; /* Space below the title */
+}
+
+.content-section {
+    background-color: #ebebeb; /* Light gray background */
+    padding: 20px; /* Padding inside content boxes */
+    margin: 10px 0; /* Margin between boxes */
+    width: 90%; /* Box width as 90% of the screen */
+    max-width: 740px; /* Max width for content boxes */
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.content-section h2 {
+	margin-top: 5px;
+}
+
+.content-section p,
+.content-section h3 {
+    margin: 5px 0; /* Adjust the margin to reduce spacing */
+}
+
+
+footer {
+    background-color: #555555; /* Dark gray background */
+    color: white; /* White text */
+    text-align: center; /* Centered text */
+    padding: 10px; /* Padding inside footer */
+    width: 100%; /* Full width */
+    box-sizing: border-box; /* Include padding in width */
+    margin-top: auto; /* Push footer to the bottom */
+    font-size: 12px; /* Font size */
+}
+
+footer a {
+    color: white; /* White text for links */
+    text-decoration: none; /* No underline by default */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+
+.button-container {
+    display: flex; /* Flex container */
+    flex-direction: row; /* Horizontal layout */
+    align-items: center; /* Center buttons vertically */
+    justify-content: flex-start; /* Align buttons to the left */
+    width: 90%; /* Width of the button container */
+    max-width: 740px; /* Max width for button container */
+    margin-bottom: 10px; /* Margin below button container */
+}
+
+.button-25 {
+    background-color: #36A9AE; /* Solid color background */
+    border: none; /* Remove border */
+    color: #FFFFFF; /* Text color */
+    cursor: pointer;
+    display: block;
+    font-family: -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 100%;
+    margin: 0 10px; /* Margin to the left and right of buttons */
+    outline: 0;
+    padding: 11px 15px 12px; /* Padding inside the button */
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 200px; /* Set a fixed width for buttons */
+    font-weight: bold;
+    /* Add red borders on top and bottom */
+    border-top: 6px solid #6ccace; /* Adjust thickness and color */
+    border-bottom: 6px solid #379193; /* Adjust thickness and color */    
+}
+
+.button-25:hover {
+    background-color: #329CA0; /* Darker color on hover */
+    text-decoration: none;
+}
+
+.button-25:active {
+    background-color: #2A8387; /* Even darker color on active state */
+}
+
+.button-25:disabled {
+    cursor: not-allowed;
+    opacity: .6; /* Make the button semi-transparent when disabled */
+}
+
+.button-25:disabled:hover,
+.button-25:disabled:active {
+    background-color: #36A9AE; /* Keep the background color unchanged when disabled */
+}
+
+
+/* Restore styles specifically for the 3D MAP link */
+.threed-map {
+    font-size: 14px; /* Ensure the font size matches the other links */
+    font-weight: bold; /* Bold text */
+    color: black; /* Black text color */
+    text-decoration: none; /* No underline */
+    background-color: #fffacd; /* Light yellow background */
+    padding: 5px 10px; /* Add some padding to make it comfortable */
+    margin: 0; /* No extra margins */
+    position: relative; /* To position the pseudo-element */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for background color */
+}
+
+/* Keep the yellow underline effect for the 3D MAP link */
+.threed-map::after {
+    content: ''; /* An empty content for the pseudo-element */
+    position: absolute; /* Position it at the bottom */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px; /* Thickness of the border */
+    background-color: #efcc00; /* Yellow color for the underline */
+    transition: background-color 0.3s; /* Smooth transition for underline color */
+}
+
+/* Hover effect for the 3D MAP link */
+.threed-map:hover {
+    background-color: transparent; /* Change background to red on hover */
+}
+
+.threed-map:hover::after {
+    background-color: #36A9AE; /* Change underline to blue on hover */
+}
+
+
+
