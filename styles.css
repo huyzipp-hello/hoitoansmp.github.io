@@ -132,6 +132,16 @@ body {
     font-size: 18px; /* Title size larger */
 }
 
+.server-description h2 {
+	margin-top: 10px;
+	font-weight: bold;
+	font-size: 30px; /* Title size larger */
+}
+
+p {
+	font-size: 20px;
+}
+
 .description-title {
     font-size: 24px; /* Title size larger */
     font-weight: bold; /* Bold text */
