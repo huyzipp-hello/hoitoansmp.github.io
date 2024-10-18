@@ -12,7 +12,7 @@ a {
 } 
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     color: black;
     background-color: white;
     flex: 1; /* Flex grow to take remaining space */
@@ -194,7 +194,7 @@ footer a:hover {
     color: #FFFFFF; /* Text color */
     cursor: pointer;
     display: block;
-    font-family: -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     font-size: 17px;
     line-height: 100%;
     margin: 0 10px; /* Margin to the left and right of buttons */
