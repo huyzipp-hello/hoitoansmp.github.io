@@ -5,6 +5,10 @@ html, body {
     flex-direction: column; /* Column layout for the whole page */
 }
 
+p {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
 
 a {
 	text-decoration: underline;
@@ -237,7 +241,6 @@ footer a:hover {
 }
 
 
-/* Restore styles specifically for the 3D MAP link */
 .threed-map {
     font-size: 14px; /* Ensure the font size matches the other links */
     font-weight: bold; /* Bold text */
@@ -270,6 +273,5 @@ footer a:hover {
 .threed-map:hover::after {
     background-color: #36A9AE; /* Change underline to blue on hover */
 }
-
 
 
