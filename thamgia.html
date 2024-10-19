@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>HoitoanSMP - THAM GIA</title>
+    <link rel="icon" type="image/x-icon" href="server-icon.ico">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column; /* Allow the body to grow vertically */
+            justify-content: flex-start; /* Start from the top */
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            margin: 0; /* Remove default margin */
+            background-color: #f9f9f9; /* Optional: Background color for better visibility */
+            overflow-y: auto; /* Enable vertical scrolling */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center items in the container */
+            width: 100%; /* Full width */
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; 
+            max-width: 600px; 
+            width: 100%; /* Make the form responsive */
+            padding: 20px; /* Optional: Padding inside the form */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: none; /* Ensure no shadow */
+            background-color: transparent; /* Optional: Background color for form */
+            margin-top: 20px; /* Add some space above the form */
+        }
+
+        input, textarea {
+            width: 100%; /* Full width for inputs */
+            padding: 12px; 
+            font-size: 16px; 
+            border: 1px solid #ccc; 
+            border-radius: 4px; 
+            box-sizing: border-box; 
+        }
+
+        #name, #minecraft-name, #age {
+            min-height: 50px; 
+        }
+
+        textarea {
+            resize: none; 
+            min-height: 150px; 
+            max-height: 300px; 
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-top: 10px; 
+        }
+
+        input[type="checkbox"] {
+            width: 20px; 
+            height: 20px; 
+            margin-right: 8px; 
+        }
+
+        button {
+            padding: 12px; 
+            font-size: 16px; 
+            cursor: pointer; 
+            background-color: #4CAF50; 
+            color: white; 
+            border: none; 
+            border-radius: 4px; 
+        }
+
+        button:disabled {
+            background-color: #ccc; 
+            cursor: not-allowed; 
+        }
+
+        .hidden {
+            display: none; /* Class to hide elements */
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="title-section">
+                <a class="main-title" href="#">HoitoanSMP</a>
+                <a href="#" style="text-decoration:none"><div class="subtitle">Sinh Tồn Vanilla Cho Anh Em</div></a>
+            </div>
+            <div class="links">
+                <a href="luat">LUẬT</a>
+                <a href="sukien">SỰ KIỆN</a>
+                <a href="3dmap">3D MAP</a>
+                <a href="thuvien">THƯ VIỆN</a>
+                <a href="thamgia" class="threed-map">THAM GIA</a>
+            </div>
+        </div>
+    </div>
+    <div class="container"> <!-- New container for centering content -->
+        <h2 style="text-align: center;">THAM GIA HOITOANSMP!</h2> <!-- Center the title -->
+        <form id="contact-form">
+            <label for="age">Tên đầy đủ của bạn</label>
+            <input type="text" id="name" name="name" placeholder="" required>
+            
+            <label for="age">Tuổi của bạn</label> <!-- Age label added -->
+            <input type="number" id="age" name="age" placeholder="" required min="1">
+            <label for="age">Tên Minecraft của bạn</label>
+            <input type="text" id="minecraft-name" name="minecraft-name" placeholder="" required>
+            
+            <div class="checkbox-container">
+                <input type="checkbox" id="friend" name="friend">
+                <label for="friend">Tôi là bạn bè, người thân của bạn cấp hai của bạn.</label>
+            </div>
+
+            <textarea id="clarification" name="clarification" placeholder="Nói rõ..." class="hidden"></textarea> <!-- Hidden clarification box -->
+            <label for="age">Tại sao tôi nên thêm bạn</label>
+            <textarea id="message" name="message" placeholder="Viết lí do..." required></textarea>
+
+            <div class="checkbox-container">
+                <input type="checkbox" id="agree" name="agree" required>
+                <label for="agree">Tôi đồng ý <a href="luat">luật</a>.</label>
+            </div>
+
+            <button type="submit" id="submit-btn" disabled>Gửi</button>
+        </form>
+    </div>
+
+    <script>
+        emailjs.init("wqZOmkv9LVaNtso6p");
+
+        const submitButton = document.getElementById('submit-btn');
+        const friendCheckbox = document.getElementById('friend');
+        const clarificationBox = document.getElementById('clarification');
+        const nameInput = document.getElementById('name');
+        const ageInput = document.getElementById('age'); // New age input reference
+        const minecraftNameInput = document.getElementById('minecraft-name');
+        const messageInput = document.getElementById('message');
+        const agreeCheckbox = document.getElementById('agree');
+
+        friendCheckbox.addEventListener('change', () => {
+            clarificationBox.classList.toggle('hidden', !friendCheckbox.checked); // Show/hide clarification box
+        });
+
+        // Enable/disable submit button based on the agree checkbox
+        agreeCheckbox.addEventListener('change', () => {
+            submitButton.disabled = !agreeCheckbox.checked;
+        });
+
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Check if all required fields are filled
+            const isNameFilled = nameInput.value.trim() !== '';
+            const isAgeFilled = ageInput.value.trim() !== ''; // Check age input
+            const isMinecraftNameFilled = minecraftNameInput.value.trim() !== '';
+            const isMessageFilled = messageInput.value.trim() !== '';
+            const isAgreeChecked = agreeCheckbox.checked;
+
+            if (isNameFilled && isAgeFilled && isMinecraftNameFilled && isMessageFilled && isAgreeChecked) {
+                emailjs.sendForm('service_hoitoan', 'template_oy3lt2q', this)
+                    .then(() => {
+                        alert('Gửi email thành công!');
+                        this.reset();
+                        clarificationBox.classList.add('hidden'); // Hide clarification box on submit
+                        submitButton.disabled = true; // Disable the button after submission
+                    }, (error) => {
+                        alert('Có lỗi xảy ra: ' + JSON.stringify(error));
+                    });
+            } else {
+                alert('Vui lòng điền tất cả các trường thông tin.');
+            }
+        });
+    </script>
+
+</body>
+</html>
