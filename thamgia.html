@@ -70,21 +70,6 @@
             margin-right: 8px; 
         }
 
-        button {
-            padding: 12px; 
-            font-size: 16px; 
-            cursor: pointer; 
-            background-color: #4CAF50; 
-            color: white; 
-            border: none; 
-            border-radius: 4px; 
-        }
-
-        button:disabled {
-            background-color: #ccc; 
-            cursor: not-allowed; 
-        }
-
         .hidden {
             display: none; /* Class to hide elements */
         }
@@ -131,7 +116,7 @@
                 <label for="agree">Tôi đồng ý <a href="luat">luật</a>.</label>
             </div>
 
-            <button type="submit" id="submit-btn" disabled>Gửi</button>
+            <button style="justify-content: flex-end; width: 100%;" type="submit" id="submit-btn" class="button-25" disabled>Gửi</button>
         </form>
     </div>
 
@@ -181,6 +166,11 @@
             }
         });
     </script>
-
+    <footer>
+        <div class="footer-content">
+			© HOITOANSMP 2024 <a href="#">Trợ giúp & Hỗ trợ</a> | <a href="#">Điều khoản sử dụng</a> | <a href="#">Chính sách bảo mật</a><br>
+            Minecraft là thương hiệu của Tập đoàn Microsoft. HoitoanSMP không phải là dịch vụ chính thức của Minecraft.
+        </div>
+    </footer>
 </body>
 </html>
